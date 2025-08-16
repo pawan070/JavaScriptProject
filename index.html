@@ -1,15 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Hands on Projects</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Some hand on projects on JavaScript.</h1>
-    <button id-="DateTime">Get current date and time</button>
-    <div id="date" class="none"></div>
+    <div class="container">
+        <div class="row">
+            <h1>Interactive Hands-On JavaScript Projects</h1>
+            <div class="projects">
+                <!-- <div class="project">
+            <h2>Project 1: Calculator</h2>
+            <p>Build a simple calculator that can perform basic arithmetic operations.</p>
+            <a href="calculator.html">Go to Calculator</a>
+        </div> -->
+                <div class="project">
+                    <h2>Date and Time App</h2>
+                    <p>
+                        get current Data and Time inside a modal.
+                    </p>
+                    <button id="myBtn1">Click to get current Date and Time</button>
+                    <div id="myModal1" class="modal">
+                        <div class="modal-content">
+                            <span class="close ">&times;</span>
+                            <h2 class=" center"><strong>Current Date and Time</strong></h2>
+                            <p id="date"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project">
+                    <h2>Weather App</h2>
+                    <p>
+                        Get the Weather of next seven days after input the location, this fetches data from a weather API and displays current weather conditions.
+                    </p>
+                    <button id="myBtn2">Open Modal</button>
+                    <div id="myModal2" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2>7-Day Weather Forecast</h2>
+                            <input type="text" id="locationInput" placeholder="Enter city name">
+                            <button id="getWeatherBtn">Get Forecast</button>
+                            <div id="forecastDiv"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 <script src="script.js"></script>
+
 </html>

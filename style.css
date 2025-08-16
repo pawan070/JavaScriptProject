@@ -1,19 +1,107 @@
-body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
+* {
+    box-sizing: border-box;
 }
 
-.none{
+.container {
+    width: 100%;
+    max-width: 991px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+ body {
+  background-color: #f4f7f8;
+  font-family: 'Roboto', sans-serif;
+  color: #222;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #0077b6;
+  margin-bottom: 30px;
+}
+h2 {
+  color: #0077b6;
+  font-weight: 500;
+  text-align: left;
+}
+
+p {
+  color: #555;
+  font-size: 16px;
+  text-align: left;
+}
+
+ button {
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #005f86;
+  transform: scale(1.05);
+}
+
+.none {
     display: none;
+}
+
+.project{
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
 }
 
 #date {
     margin-top: 20px;
     font-size: 18px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+ .modal-content {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#forecast p {
+  margin: 5px 0;
+  font-size: 14px;
 }
