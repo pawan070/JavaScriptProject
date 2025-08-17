@@ -58,3 +58,65 @@ getWeatherBtn.onclick = async () => {
         console.error(error);
     }
 };
+
+
+// calculator script starts
+const display = document.getElementById('display');
+const keys = document.querySelector('.keys');
+
+// Append value safely
+function insert(val) {
+    if (display.value === '0' && /[0-9.]/.test(val)) {
+        display.value = val;
+    } else {
+        display.value += val;
+    }
+}
+
+// Evaluate with basic sanitization
+function evaluateExpr(expr) {
+    const safe = expr.replace(/\s+/g, '');
+    if (!/^[0-9+\-*/%.()]+$/.test(safe)) throw new Error('Invalid input');
+    // Replace % with /100 for simple percentage behavior
+    const normalized = safe.replace(/%/g, '/100');
+    // eslint-disable-next-line no-new-func
+    return Function(`"use strict"; return (${normalized});`)();
+}
+
+function equals() {
+    try {
+        const result = evaluateExpr(display.value);
+        display.value = Number.isFinite(result) ? String(result) : 'Error';
+    } catch {
+        display.value = 'Error';
+    }
+}
+
+function del() {
+    display.value = display.value.length > 1 ? display.value.slice(0, -1) : '0';
+}
+
+// Button clicks
+keys.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+
+    const val = btn.dataset.value;
+    const action = btn.dataset.action;
+
+    if (val) insert(val);
+    if (action === 'clear') display.value = '0';
+    if (action === 'delete') del();
+    if (action === 'equals') equals();
+});
+
+// Keyboard support
+document.addEventListener('keydown', e => {
+    const map = { Enter: 'equals', '=': 'equals', Escape: 'clear', Backspace: 'delete' };
+    if (map[e.key] === 'equals') { e.preventDefault(); equals(); }
+    else if (map[e.key] === 'clear') { display.value = '0'; }
+    else if (map[e.key] === 'delete') { del(); }
+    else if (/^[0-9+\-*/%.()]$/.test(e.key)) { insert(e.key); }
+});
+
+// calculator script ends
