@@ -59,12 +59,10 @@ getWeatherBtn.onclick = async () => {
     }
 };
 
-
 // calculator script starts
 const display = document.getElementById('display');
 const keys = document.querySelector('.keys');
 
-// Append value safely
 function insert(val) {
     if (display.value === '0' && /[0-9.]/.test(val)) {
         display.value = val;
@@ -73,7 +71,6 @@ function insert(val) {
     }
 }
 
-// Evaluate with basic sanitization
 function evaluateExpr(expr) {
     const safe = expr.replace(/\s+/g, '');
     if (!/^[0-9+\-*/%.()]+$/.test(safe)) throw new Error('Invalid input');
@@ -96,7 +93,6 @@ function del() {
     display.value = display.value.length > 1 ? display.value.slice(0, -1) : '0';
 }
 
-// Button clicks
 keys.addEventListener('click', e => {
     const btn = e.target.closest('button');
     if (!btn) return;
@@ -110,7 +106,6 @@ keys.addEventListener('click', e => {
     if (action === 'equals') equals();
 });
 
-// Keyboard support
 document.addEventListener('keydown', e => {
     const map = { Enter: 'equals', '=': 'equals', Escape: 'clear', Backspace: 'delete' };
     if (map[e.key] === 'equals') { e.preventDefault(); equals(); }
@@ -118,5 +113,4 @@ document.addEventListener('keydown', e => {
     else if (map[e.key] === 'delete') { del(); }
     else if (/^[0-9+\-*/%.()]$/.test(e.key)) { insert(e.key); }
 });
-
 // calculator script ends

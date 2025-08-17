@@ -128,13 +128,13 @@ button:hover {
 }
 .keys button {
   padding:14px 0; font-size:18px; border:none; border-radius:12px; cursor:pointer;
-  background:#f3f4f6; transition:transform .05s ease, background .2s ease, box-shadow .2s ease;
+  background:#7a9de5; transition:transform .05s ease, background .2s ease, box-shadow .2s ease;
   box-shadow:0 1px 0 rgba(0,0,0,.04);
 }
-.keys button:hover { background:#e5e7eb; }
+.keys button:hover { background:#2c477e; }
 .keys button:active { transform:scale(.98); }
-.keys .op { background:#e8f1ff; }
-.keys .equals { background:#0077b6; color:#fff; }
+.keys .op { background:#8f9dba; }
+.keys .equals { background:#02304a; color:#fff; }
 .keys .span-2 { grid-column:span 2; }
 
 /* Button to open modal */
