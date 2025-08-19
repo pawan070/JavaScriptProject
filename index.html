@@ -42,7 +42,8 @@
                             <span class="close" aria-label="Close calculator">&times;</span>
                             <h2>Calculator</h2>
                             <div class="calculator" role="application" aria-label="Basic calculator">
-                                <input id="display" class="display" type="text" value="0" inputmode="numeric" aria-label="Calculator display" />
+                                <input id="display" class="display" type="text" value="0" inputmode="numeric"
+                                    aria-label="Calculator display" />
                                 <div class="keys">
                                     <button data-action="clear">AC</button>
                                     <button data-action="delete">DEL</button>
@@ -79,9 +80,15 @@
                     </p>
                     <button id="myBtn3">Click to get current Date and Time</button>
                     <div id="myModal3" class="modal">
-                        <div class="modal-content">
+                        <!-- <div class="modal-content">
                             <span class="close ">&times;</span>
                             <h2 class=" center"><strong>Current Date and Time</strong></h2>
+                            <p id="date"></p>
+                        </div> -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2 id="greeting"></h2>
+                            <h1 id="clock"></h1>
                             <p id="date"></p>
                         </div>
                     </div>

@@ -87,7 +87,7 @@ button:hover {
     background: #fff;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .close {
@@ -109,38 +109,115 @@ button:hover {
     font-size: 14px;
 }
 
-/* calculator css starts */
-/* Modal basics */
-.modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:1000; }
-.modal-content { width:340px; margin:6rem auto; background:#fff; padding:20px; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,.15); }
-.close { float:right; font-size:22px; cursor:pointer; }
+/* date and time css starts */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .5);
+}
 
-/* Calculator */
-.calculator { margin-top:10px; }
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    margin: 10% auto;
+    width: 320px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .15);
+}
+
+#clock {
+    font-size: 2.5rem;
+    color: #0077b6;
+    margin: 10px 0;
+}
+
+#greeting {
+    font-size: 1.2rem;
+    color: #444;
+}
+
+#date {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* date and time css ends */
+
+/* calculator css starts */
+#myModal2 .modal-content {
+    width: 400px;
+    max-width: 100%;
+}
+
+.calculator {
+    margin-top: 10px;
+}
+
 .display {
-  width:100%; height:56px; font-size:28px; text-align:right; padding:8px 12px;
-  border:1px solid #e5e7eb; border-radius:10px; background:#f9fafb; outline:none;
+    width: 100%;
+    height: 56px;
+    font-size: 28px;
+    text-align: right;
+    padding: 8px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #f9fafb;
+    outline: none;
 }
+
 .keys {
-  margin-top:12px;
-  display:grid; gap:10px;
-  grid-template-columns: repeat(4, 1fr);
+    margin-top: 12px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
 }
+
 .keys button {
-  padding:14px 0; font-size:18px; border:none; border-radius:12px; cursor:pointer;
-  background:#7a9de5; transition:transform .05s ease, background .2s ease, box-shadow .2s ease;
-  box-shadow:0 1px 0 rgba(0,0,0,.04);
+    padding: 14px 0;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: #7a9de5;
+    transition: transform .05s ease, background .2s ease, box-shadow .2s ease;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .04);
 }
-.keys button:hover { background:#2c477e; }
-.keys button:active { transform:scale(.98); }
-.keys .op { background:#8f9dba; }
-.keys .equals { background:#02304a; color:#fff; }
-.keys .span-2 { grid-column:span 2; }
+
+.keys button:hover {
+    background: #2c477e;
+}
+
+.keys button:active {
+    transform: scale(.98);
+}
+
+.keys .op {
+    background: #8f9dba;
+}
+
+.keys .equals {
+    background: #02304a;
+    color: #fff;
+}
+
+.keys .span-2 {
+    grid-column: span 2;
+}
 
 /* Button to open modal */
 #openCalc {
-  padding:10px 18px; border:none; border-radius:8px; background:#0077b6; color:#fff; cursor:pointer;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #0077b6;
+    color: #fff;
+    cursor: pointer;
 }
-#openCalc:hover { background:#005f86; }
+
+#openCalc:hover {
+    background: #005f86;
+}
 
 /* calculator css ends */
