@@ -1,9 +1,11 @@
 var modal1 = document.getElementById("myModal1");
 var modal2 = document.getElementById("myModal2");
 var modal3 = document.getElementById("myModal3");
+var modal4 = document.getElementById("myModal4");
 var btn1 = document.getElementById("myBtn1");
 var btn2 = document.getElementById("myBtn2");
 var btn3 = document.getElementById("myBtn3");
+var btn4 = document.getElementById("myBtn4");
 
 btn3.onclick = function () {
     console.log('inside btn3 onclick');
@@ -29,6 +31,9 @@ btn2.onclick = function () {
 btn1.onclick = function () {
     modal1.style.display = "block";
 }
+btn4.onclick = function () {
+    modal4.style.display = "block";
+}
 
 var spanElements = document.querySelectorAll(".close");
 spanElements.forEach(function (span) {
@@ -36,19 +41,22 @@ spanElements.forEach(function (span) {
         modal1.style.display = "none";
         modal2.style.display = "none";
         modal3.style.display = "none";
+        modal4.style.display = "none";
     };
 });
 
 window.onclick = function (event) {
-    if (event.target == modal1 || event.target == modal2) {
+    if (event.target == modal1 || event.target == modal2 || event.target == modal3 || event.target == modal4) {
         modal1.style.display = "none";
         modal2.style.display = "none";
         modal3.style.display = "none";
+        modal4.style.display = "none";
     }
 }
 
 
 getWeatherBtn.onclick = async () => {
+    console.log('inside getWeatherBtn onclick');
     const city = document.getElementById("locationInput").value.trim();
     if (!city) {
         forecastDiv.innerHTML = "<p>Please enter a city name.</p>";
@@ -132,3 +140,38 @@ document.addEventListener('keydown', e => {
     else if (/^[0-9+\-*/%.()]$/.test(e.key)) { insert(e.key); }
 });
 // calculator script ends
+
+// git user search script starts
+searchGithub.onclick = async () => {
+    console.log('inside searchGithub onclick');
+    const resultDiv = document.getElementById("githubResult");
+    const username = document.getElementById("githubInput").value.trim();
+    if (!username) {
+        resultDiv.innerHTML = "<p>Please enter a username.</p>";
+        return;
+    }
+
+    resultDiv.innerHTML = "<p>Loading...</p>";
+
+    try {
+        const res = await fetch(`https://api.github.com/users/${username}`);
+        if (!res.ok) {
+            resultDiv.innerHTML = "<p>User not found.</p>";
+            return;
+        }
+        const data = await res.json();
+
+        resultDiv.innerHTML = `
+      <img src="${data.avatar_url}" alt="${data.login} avatar">
+      <h3>${data.name || data.login}</h3>
+      <p><strong>Bio:</strong> ${data.bio || "No bio available"}</p>
+      <p><strong>Public Repos:</strong> ${data.public_repos}</p>
+      <p><strong>Followers:</strong> ${data.followers}</p>
+      <p><a href="${data.html_url}" target="_blank">View Profile</a></p>
+    `;
+    } catch (error) {
+        resultDiv.innerHTML = "<p>Something went wrong. Try again.</p>";
+        console.error(error);
+    }
+}
+// git user search script ends
