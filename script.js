@@ -54,7 +54,8 @@ window.onclick = function (event) {
     }
 }
 
-
+const getWeatherBtn = document.getElementById("getWeatherBtn");
+const forecastDiv = document.getElementById("forecastDiv");    
 getWeatherBtn.onclick = async () => {
     console.log('inside getWeatherBtn onclick');
     const city = document.getElementById("locationInput").value.trim();
@@ -142,6 +143,7 @@ document.addEventListener('keydown', e => {
 // calculator script ends
 
 // git user search script starts
+const searchGithub = document.getElementById("searchGithub");
 searchGithub.onclick = async () => {
     console.log('inside searchGithub onclick');
     const resultDiv = document.getElementById("githubResult");
